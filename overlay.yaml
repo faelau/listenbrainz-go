@@ -1,0 +1,31 @@
+overlay: 1.0.0
+info:
+  title: oas-patch generated overlay
+  version: 1.0.0
+actions:
+- target: $.components.schemas
+  update:
+    playlistExtensionPayload_additional_metadata_cover_art:
+      example:
+        dimension: dimension
+        layout: layout
+      properties:
+        dimension:
+          type: integer
+        layout:
+          type: integer
+      type: object
+- target: $.components.schemas.playlistExtensionPayload_additional_metadata.example
+  update:
+    cover_art:
+      dimension: dimension
+      layout: layout
+- target: $.components.schemas.playlistExtensionPayload_additional_metadata.properties
+  update:
+    cover_art:
+      $ref: '#/components/schemas/playlistExtensionPayload_additional_metadata_cover_art'
+- target: $.components.schemas.playlistExtensionPayload.example.additional_metadata
+  update:
+    cover_art:
+      dimension: dimension
+      layout: layout
